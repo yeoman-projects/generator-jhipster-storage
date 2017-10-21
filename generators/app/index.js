@@ -59,19 +59,15 @@ module.exports = class extends BaseGenerator {
             defaults: ''
         });
         if (!entityInfo.includes('storage:')) {
-            let storageConfig = 'storage:\n\ts3:\n\t\t' +
-                'access-key: heyirdc\n\t\t\t' +
-                'secret-key: heyirdc\n\t\t\t' +
-                'endpoint: 192.168.0.3';
-            let flag = 'spring:';
-            let flow = false;
-
             modifyFileContentUtils.rewriteFile({
                 file: entityPath,
-                needle: flag,
-                flow,
+                needle: 'spring:',
+                flow: false,
                 splicable: [
-                    storageConfig
+                    'storage:\n\ts3:\n\t\t' +
+                    'access-key: heyirdc\n\t\t\t' +
+                    'secret-key: heyirdc\n\t\t\t' +
+                    'endpoint: 192.168.0.3'
                 ]
             }, this);
         }
