@@ -1,6 +1,6 @@
 const path = require('path');
 
-function rewrite(args) {
+function appendContent(args) {
     // check if splicable is already in the body text
     const re = new RegExp(args.splicable.map(line => `\\s*${escapeRegExp(line)}`).join('\n'));
 
@@ -53,7 +53,7 @@ function rewriteFile(args, generator) {
     const fullPath = path.join(args.path, args.file);
 
     args.haystack = generator.fs.read(fullPath);
-    const body = rewrite(args);
+    const body = appendContent(args);
     generator.fs.write(fullPath, body);
 }
 

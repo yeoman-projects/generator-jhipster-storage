@@ -4,7 +4,7 @@ const semver = require('semver');
 const BaseGenerator = require('generator-jhipster/generators/generator-base');
 const jhipsterConstants = require('generator-jhipster/generators/generator-constants');
 const mkdirp = require('mkdirp');
-const jhipsterUtils = require('./modifyApplicationUtils');
+const modifyFileContentUtils = require('./modifyFileContentUtils');
 
 module.exports = class extends BaseGenerator {
     get initializing() {
@@ -43,13 +43,12 @@ module.exports = class extends BaseGenerator {
         // use constants from generator-constants.js
         const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
         const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
-        const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
 
         // copy files for the generator
         mkdirp(`${javaDir}/storage/config`);
         this.template('storage/config/StorageConfiguration.java', `${javaDir}/storage/config/StorageConfiguration.java`);
 
-        this.prefixName = this.packageName.split('.')[1] + '.storage';
+        this.prefixName = `${this.packageName.split('.')[1]}.storage`;
         this.template('storage/config/StorageProperties.java', `${javaDir}/storage/config/StorageProperties.java`);
 
         mkdirp(`${javaDir}/storage/service`);
@@ -78,16 +77,15 @@ module.exports = class extends BaseGenerator {
                     'endpoint: 192.168.0.3';
             }
 
-            jhipsterUtils.rewriteFile({
+            modifyFileContentUtils.rewriteFile({
                 file: entityPath,
                 needle: flag,
-                flow: flow,
+                flow,
                 splicable: [
                     storageConfig
                 ]
             }, this);
         }
-
     }
 
     install() {
