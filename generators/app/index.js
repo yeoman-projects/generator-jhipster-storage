@@ -6,6 +6,8 @@ const jhipsterConstants = require('generator-jhipster/generators/generator-const
 const mkdirp = require('mkdirp');
 const modifyFileContentUtils = require('./modifyFileContentUtils');
 
+const billyHerringtonLogo = require('./billyHerringtonLogo');
+
 module.exports = class extends BaseGenerator {
     get initializing() {
         return {
@@ -16,7 +18,7 @@ module.exports = class extends BaseGenerator {
                 }
             },
             displayLogo() {
-
+                billyHerringtonLogo.printDinosaurLogo.call(this);
             },
             checkJhipster() {
                 const currentJhipsterVersion = this.jhipsterAppConfig.jhipsterVersion;
@@ -44,38 +46,27 @@ module.exports = class extends BaseGenerator {
         const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
         const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
 
-        // copy files for the generator
-        mkdirp(`${javaDir}/storage/config`);
-        this.template('storage/config/StorageConfiguration.java', `${javaDir}/storage/config/StorageConfiguration.java`);
+        this.template('storage/config/StorageConfiguration.java', `${javaDir}/config/StorageConfiguration.java`);
 
+        mkdirp(`${javaDir}/config/storage`);
         this.prefixName = `${this.packageName.split('.')[1]}.storage`;
-        this.template('storage/config/StorageProperties.java', `${javaDir}/storage/config/StorageProperties.java`);
+        this.template('storage/config/StorageProperties.java', `${javaDir}/config/storage/StorageProperties.java`);
 
-        mkdirp(`${javaDir}/storage/service`);
-        this.template('storage/service/StorageService.java', `${javaDir}/storage/service/StorageService.java`);
+        mkdirp(`${javaDir}/service/storage`);
+        this.template('storage/service/StorageService.java', `${javaDir}/service/storage/StorageService.java`);
 
         // 修改application.yml文件
         const entityPath = `${resourceDir}config/application.yml`;
         const entityInfo = this.fs.read(entityPath, {
             defaults: ''
         });
-        if (!entityInfo.includes('bigbug:\n\tstorage:')) {
-            let storageConfig = '';
+        if (!entityInfo.includes('storage:')) {
+            let storageConfig = 'storage:\n\ts3:\n\t\t' +
+                'access-key: heyirdc\n\t\t\t' +
+                'secret-key: heyirdc\n\t\t\t' +
+                'endpoint: 192.168.0.3';
             let flag = 'spring:';
             let flow = false;
-            if (entityInfo.includes('bigbug')) {
-                storageConfig = 'storage:\n\ts3:\n\t\t' +
-                    'access-key: heyirdc\n\t\t\t' +
-                    'secret-key: heyirdc\n\t\t\t' +
-                    'endpoint: 192.168.0.3';
-                flow = true;
-                flag = 'bigbug:';
-            } else {
-                storageConfig = 'bigbug:\n\tstorage:\n\t\ts3:\n\t\t\t' +
-                    'access-key: heyirdc\n\t\t\t' +
-                    'secret-key: heyirdc\n\t\t\t' +
-                    'endpoint: 192.168.0.3';
-            }
 
             modifyFileContentUtils.rewriteFile({
                 file: entityPath,

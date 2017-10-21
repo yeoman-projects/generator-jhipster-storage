@@ -44,8 +44,8 @@ function escapeRegExp(str) {
 }
 
 /**
- *
- * @param args {file:路径,needle:标记位,flow:是否加到标记位下面,splicable:内容}
+ * 重写generator-jhipster/generators/utils的rewriteFile方法
+ * @param args
  * @param generator
  */
 function rewriteFile(args, generator) {
