@@ -6,7 +6,6 @@ const jhipsterConstants = require('generator-jhipster/generators/generator-const
 const mkdirp = require('mkdirp');
 const modifyFileContentUtils = require('./modifyFileContentUtils');
 
-const billyHerringtonLogo = require('./billyHerringtonLogo');
 
 module.exports = class extends BaseGenerator {
     get initializing() {
@@ -18,7 +17,6 @@ module.exports = class extends BaseGenerator {
                 }
             },
             displayLogo() {
-                billyHerringtonLogo.printDinosaurLogo.call(this);
             },
             checkJhipster() {
                 const currentJhipsterVersion = this.jhipsterAppConfig.jhipsterVersion;
