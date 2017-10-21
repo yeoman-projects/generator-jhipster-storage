@@ -1,0 +1,10 @@
+{
+    "generator-jhipster-module": {
+        "promptValues": {
+            "githubName": "Gapi",
+            "authorName": "ga pi",
+            "authorEmail": "dliecok@163.com",
+            "authorUrl": "https://github.com/dliecok"
+        }
+    }
+}
