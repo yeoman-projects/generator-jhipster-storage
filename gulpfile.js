@@ -18,7 +18,7 @@ gulp.task('eslint', () => gulp.src(['gulpfile.js', 'generators/app/index.js', 't
     .pipe(eslint.failOnError()));
 
 gulp.task('nsp', (cb) => {
-    nsp({package: path.resolve('package.json')}, cb);
+    nsp({ package: path.resolve('package.json') }, cb);
 });
 
 gulp.task('pre-test', () => gulp.src('generators/app/index.js')
@@ -32,7 +32,7 @@ gulp.task('test', ['pre-test'], (cb) => {
 
     gulp.src('test/*.js')
         .pipe(plumber())
-        .pipe(mocha({reporter: 'spec'}))
+        .pipe(mocha({ reporter: 'spec' }))
         .on('error', (err) => {
             mochaErr = err;
         })
