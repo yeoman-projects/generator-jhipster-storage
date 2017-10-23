@@ -1,10 +1,10 @@
 {
     "generator-jhipster-module": {
         "promptValues": {
-            "githubName": "Gapi",
-            "authorName": "ga pi",
-            "authorEmail": "dliecok@163.com",
-            "authorUrl": "https://github.com/dliecok"
+            "githubName": "Bigbug",
+            "authorName": "Bigbug Studio",
+            "authorEmail": "chihosin@icloud.com",
+            "authorUrl": "https://github.com/bigbug-studio"
         }
     }
 }

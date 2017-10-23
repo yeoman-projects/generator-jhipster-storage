@@ -1,16 +1,16 @@
 {
-  "name": "generator-jhipster-generator-jhipster-storage",
-  "version": "0.0.0",
+  "name": "generator-jhipster-storage",
+  "version": "1.0.0",
   "description": "plugin for aws s3",
   "keywords": [
     "yeoman-generator",
     "jhipster-module"
   ],
-  "homepage": "https://github.com/Gapi/generator-jhipster-generator-jhipster-storage",
+  "homepage": "https://github.com/bigbug-studio/generator-jhipster-storage",
   "author": {
-    "name": "ga pi",
-    "email": "dliecok@163.com",
-    "url": "https://github.com/dliecok"
+    "name": "Bigbug Studio",
+    "email": "chihosin@icloud.com",
+    "url": "https://github.com/bigbug-studio"
   },
   "files": [
     "generators"
@@ -18,7 +18,7 @@
   "main": "generators/app/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gapi/generator-jhipster-generator-jhipster-storage.git"
+    "url": "git+https://github.com/bigbug-studio/generator-jhipster-storage.git"
   },
   "dependencies": {
     "chalk": "2.1.0",
@@ -57,6 +57,6 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Gapi/generator-jhipster-generator-jhipster-storage/issues"
+    "url": "https://github.com/bigbug-studio/generator-jhipster-storage/issues"
   }
 }
