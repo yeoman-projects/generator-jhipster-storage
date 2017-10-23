@@ -2,7 +2,7 @@
 [![Build Status][circle-ci-image]][circle-ci-url]
 [![NPM version][npm-image]][npm-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
-> JHipster module, Snowflake ID Entity.
+> JHipster module that save your data into object storage or local file system.
 
 # Introduction
 

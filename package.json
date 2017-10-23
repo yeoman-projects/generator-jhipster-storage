@@ -1,7 +1,7 @@
 {
   "name": "generator-jhipster-storage",
   "version": "1.0.0",
-  "description": "plugin for aws s3",
+  "description": "JHipster module that save your data into object storage or local file system.",
   "keywords": [
     "yeoman-generator",
     "jhipster-module"
