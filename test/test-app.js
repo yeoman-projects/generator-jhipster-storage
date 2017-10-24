@@ -24,9 +24,9 @@ describe('JHipster generator storage', () => {
 
         it('generate template file', () => {
             assert.file([
-                'src/main/java/com/bigbug/dummy/config/StorageConfiguration.java',
-                'src/main/java/com/bigbug/dummy/config/storage/StorageProperties.java',
-                'src/main/java/com/bigbug/dummy/service/storage/StorageService.java',
+                'src/main/java/org/bigbug/dummy/config/StorageConfiguration.java',
+                'src/main/java/org/bigbug/dummy/config/storage/StorageProperties.java',
+                'src/main/java/org/bigbug/dummy/service/storage/StorageService.java',
             ]);
         });
 

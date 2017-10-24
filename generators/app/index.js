@@ -35,14 +35,14 @@ module.exports = class extends BaseGenerator {
         const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
         const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
 
-        this.template('storage/config/StorageConfiguration.java', `${javaDir}/config/StorageConfiguration.java`);
+        this.template('storage/config/_StorageConfiguration.java', `${javaDir}/config/StorageConfiguration.java`);
 
         mkdirp(`${javaDir}/config/storage`);
         this.prefixName = `${this.packageName.split('.')[1]}.storage`;
-        this.template('storage/config/StorageProperties.java', `${javaDir}/config/storage/StorageProperties.java`);
+        this.template('storage/config/_StorageProperties.java', `${javaDir}/config/storage/StorageProperties.java`);
 
         mkdirp(`${javaDir}/service/storage`);
-        this.template('storage/service/StorageService.java', `${javaDir}/service/storage/StorageService.java`);
+        this.template('storage/service/_StorageService.java', `${javaDir}/service/storage/StorageService.java`);
 
         // 修改application.yml文件
         const entityPath = `${resourceDir}config/application.yml`;
