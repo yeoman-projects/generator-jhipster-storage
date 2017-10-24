@@ -6,7 +6,7 @@
     "yeoman-generator",
     "jhipster-module"
   ],
-  "homepage": "https://github.com/bigbug-studio/generator-jhipster-storage",
+  "homepage": "https://github.com/bigbug-studio/generator-jhipster-storage.git",
   "author": {
     "name": "Bigbug Studio",
     "email": "chihosin@icloud.com",

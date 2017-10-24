@@ -1,6 +1,4 @@
 const chalk = require('chalk');
-const packagejs = require('../../package.json');
-const semver = require('semver');
 const BaseGenerator = require('generator-jhipster/generators/generator-base');
 const jhipsterConstants = require('generator-jhipster/generators/generator-constants');
 const mkdirp = require('mkdirp');
@@ -17,13 +15,6 @@ module.exports = class extends BaseGenerator {
                 }
             },
             displayLogo() {
-            },
-            checkJhipster() {
-                const currentJhipsterVersion = this.jhipsterAppConfig.jhipsterVersion;
-                const minimumJhipsterVersion = packagejs.dependencies['generator-jhipster'];
-                if (!semver.satisfies(currentJhipsterVersion, minimumJhipsterVersion)) {
-                    this.warning(`\nYour generated project used an old JHipster version (${currentJhipsterVersion})... you need at least (${minimumJhipsterVersion})\n`);
-                }
             }
         };
     }

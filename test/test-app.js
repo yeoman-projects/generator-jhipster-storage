@@ -22,12 +22,15 @@ describe('JHipster generator storage', () => {
                 .on('end', done);
         });
 
-        it('generate dummy.txt file', () => {
+        it('generate template file', () => {
             assert.file([
                 'src/main/java/com/bigbug/dummy/config/StorageConfiguration.java',
                 'src/main/java/com/bigbug/dummy/config/storage/StorageProperties.java',
                 'src/main/java/com/bigbug/dummy/service/storage/StorageService.java',
             ]);
+        });
+
+        it('generate application.yml content', () => {
             assert.fileContent('src/main/resources/config/application.yml', 'storage:\n\ts3:\n\t\t');
         });
     });
